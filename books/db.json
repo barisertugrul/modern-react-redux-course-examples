@@ -1,0 +1,22 @@
+{
+  "books": [
+    {
+      "title": "Alemdağda Var Bir Yılan",
+      "author": "Sait Faik Abasıyanık",
+      "year": 1954,
+      "id": 1
+    },
+    {
+      "title": "Sizin Memlekette Eşek Yok mu?",
+      "id": 2
+    },
+    {
+      "title": "Havuz Başı/Son Kuşlar",
+      "id": 4
+    },
+    {
+      "title": "Ateşten Gömlek",
+      "id": 5
+    }
+  ]
+}

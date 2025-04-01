@@ -1,0 +1,33 @@
+# Get all books
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+
+# Create a new book
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Alemdağda Var Bir Yılan",
+  "author": "Sait Faik Abasıyanık",
+  "year": 1954
+}
+
+###
+
+# Update a book
+PUT http://localhost:3001/books/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "İstanbul Hatırası - Karton Kapak",
+  "author": "Ahmet Ümit",
+  "year": 2014
+}
+
+###
+
+# Delete a book
+DELETE http://localhost:3001/books/2 HTTP/1.1
+Content-Type: application/json
