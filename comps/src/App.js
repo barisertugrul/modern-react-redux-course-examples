@@ -1,31 +1,34 @@
-import { useState } from "react";
-import Dropdown from "./components/Dropdown";
+import Link from "./components/Link";
+import Route from "./components/Route";
+import Sidebar from "./components/Sidebar";
+import AccordionPage from "./pages/AccordionPage";
+import DropdownPage from "./pages/DropdownPage";
+import ButtonPage from "./pages/ButtonPage";
+import ModalPage from "./pages/ModalPage";
+import TablePage from "./pages/TablePage";
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const options = [
-    { label: "Option 1", value: 1 },
-    { label: "Option 2", value: 2 },
-    { label: "Option 3", value: 3 },
-  ];
-
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-  };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Dropdown
-        options={options}
-        onChange={handleSelect}
-        value={selectedOption}
-      />
-      <Dropdown
-        options={options}
-        onChange={handleSelect}
-        value={selectedOption}
-      />
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+      <Sidebar />
+      <div className="col-span-5">
+        <Route path="/">
+          <DropdownPage />
+        </Route>
+        <Route path="/accordion">
+          <AccordionPage />
+        </Route>
+        <Route path="/buttons">
+          <ButtonPage />
+        </Route>
+        <Route path="/modal">
+          <ModalPage />
+        </Route>
+        <Route path="/table">
+          <TablePage />
+        </Route>
+      </div>
     </div>
   );
 }

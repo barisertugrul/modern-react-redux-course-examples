@@ -4,7 +4,7 @@ import { GoBell, GoAlert, GoCheck } from "react-icons/go";
 function ButtonPage() {
 
   const handleClick = () => {
-    console.log("Button clicked!");
+
   }
 
   return (
