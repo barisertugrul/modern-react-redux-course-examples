@@ -1,14 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Table from "./Table";
 import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
+import useSort from "../hooks/use-sort";
 
 function SortableTable(props) {
-    const [sortOrder, setSortOrder] = useState(null);
-    const [sortBy, setSortBy] = useState(null);
+    /* const [sortOrder, setSortOrder] = useState(null);
+    const [sortBy, setSortBy] = useState(null); */
 
     const { config, data } = props;
 
-    const handleSort = (column) => {
+    const { sortOrder, sortBy, sortedData, setSortColumn } = useSort({ data, config });
+
+
+   /*  const handleSort = (column) => {
         if (sortBy && column.label !== sortBy) {
             setSortOrder('asc');
             setSortBy(column.label);
@@ -25,14 +29,14 @@ function SortableTable(props) {
             setSortOrder(null);
             setSortBy(null);
         }
-    }
+    } */
 
     const newConfig = config.map((column) => {
         if (column.sortValue) {
             return {
                 ...column,
                 header: () => (
-                    <th className="px-4 py-2 text-left cursor-pointer hover:bg-gray-100" onClick={() => handleSort(column)}>
+                    <th className="px-4 py-2 text-left cursor-pointer hover:bg-gray-100" onClick={() => setSortColumn(column)}>
                         <div className="flex items-center">
                             {getIcons(column.label, sortBy, sortOrder)}
                             {column.label}
@@ -44,7 +48,7 @@ function SortableTable(props) {
         return column;
     });
 
-    let sortedData = data;
+    /* let sortedData = data;
     if (sortOrder && sortBy) {
         const { sortValue } = config.find(column => column.label === sortBy);
         sortedData = [...data].sort((a, b) => {
@@ -56,7 +60,7 @@ function SortableTable(props) {
             }
             return (aValue - bValue) * order;
         });
-    }
+    } */
 
     return (
         <Table {...props} config={newConfig} data={sortedData} />
